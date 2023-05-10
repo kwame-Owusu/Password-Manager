@@ -3,9 +3,12 @@
 a password manager GUI app, like my pomodoro app, I first did it in regular tkinter, then i later modernized it with customtkinter and custom message box library.
 the GUI app allows a user to enter a website, email/username and password , then the details will be saved into a txt file, in which the user can see the correct details.
 here is how the app looked with vanilla tkinter:
-![image](https://github.com/kwame-Owusu/Passwor-Manager/assets/98961379/6abba27f-538b-43c0-a566-de066b806c70)
+
+![image](https://github.com/kwame-Owusu/Passwor-Manager/assets/98961379/188da881-435f-4332-a5aa-e2b783da4b7b)
+
 
 here is the aftermath of using customtkinter and the other libraries:
+
 ![image](https://github.com/kwame-Owusu/Passwor-Manager/assets/98961379/40eb8d56-a252-4693-b26e-726ed7c7f692)
 
 
