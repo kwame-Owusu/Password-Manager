@@ -1,4 +1,4 @@
-# Passwor-Manager
+# Password-Manager
 
 a password manager GUI app, like my pomodoro app, I first did it in regular tkinter, then i later modernized it with customtkinter and custom message box library.
 the GUI app allows a user to enter a website, email/username and password , then the details will be saved into a txt file, in which the user can see the correct details.
