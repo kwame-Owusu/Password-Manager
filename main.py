@@ -68,9 +68,9 @@ def save():
 
 
     if len(website) == 0 or len(password) ==0:
-        CTkMessagebox(title="oops", message="please complete all fields", icon="warning")
+        CTkMessagebox(title="oops", message="please complete all fields", icon="warning", button_color=SLATE_PINK, button_hover_color=SLATE_BLUE)
     else:
-        is_ok = CTkMessagebox(title=website, message=f"these are the details entered:\nEmail: {email} \nPassword: {password} \nis it okay to save? ", icon="info")
+        is_ok = CTkMessagebox(title=website, message=f"these are the details entered:\nEmail: {email} \nPassword: {password} \nis it okay to save? ", icon="info", button_color=SLATE_PINK, button_hover_color=SLATE_BLUE)
 
         if is_ok:
             with open("data.txt", "a") as file:
