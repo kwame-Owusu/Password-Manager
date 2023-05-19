@@ -19,5 +19,7 @@ and finally the "Add" button adds all the details to the txt file.
 
 ![image](https://github.com/kwame-Owusu/Password-Manager/assets/98961379/c54d3be5-01ab-464a-82ae-1078ad97ac85)
 edit:
+
+
 after updating the app to catch some errors and also changed a little of the ui, the details will now be stored in a json format instead of plain .txt file, which I think is better for formatting and sharing.
 
