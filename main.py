@@ -4,6 +4,10 @@ from tkinter import messagebox
 import random
 import pyperclip
 from CTkMessagebox import CTkMessagebox
+import json
+
+from PIL import Image
+
 
 app = customtkinter.CTk()
 
@@ -66,24 +70,55 @@ def save():
     email= email_entry.get()
     password = password_entry.get()
 
+    new_data = {website: {
+        "email": email,
+        "password": password,
+    }}
 
     if len(website) == 0 or len(password) ==0:
-        CTkMessagebox(title="oops", message="please complete all fields", icon="warning", button_color=SLATE_PINK, button_hover_color=SLATE_BLUE)
+        CTkMessagebox(title="oops", message="please complete all fields", icon="warning", button_color=SLATE_PINK, button_hover_color=SLATE_BLUE, font=("Fixedsys",15, ))
     else:
-        is_ok = CTkMessagebox(title=website, message=f"these are the details entered:\nEmail: {email} \nPassword: {password} \nis it okay to save? ", icon="info", button_color=SLATE_PINK, button_hover_color=SLATE_BLUE)
-
-        if is_ok:
-            with open("data.txt", "a") as file:
-                file.write(f"website: {website}  | email: {email} | password: {password}")
-                file.write("\n")
-                file.close()
-
-
+        try:
+             with open("data.json", "r") as data_file:
+             #    reading old data
+                data = json.load(data_file)
+           
+        except FileNotFoundError:
+            with open("data.json", "w") as data_file:
+                json.dump(new_data, data_file, indent= 4)
+        else:
+            # updating old data with new data
+            data.update(new_data)
+       
+    
+            with open("data.json", "w") as data_file:
+                # saving updated data
+                json.dump(data, data_file, indent=4)
+        finally:
                 web_entry.delete(0, END)
-                email_entry.delete(0, END)
                 password_entry.delete(0, END)    
 
+# ---------------------------- SEARCH FUNCTIONALITY ------------------------------- #
+# search for details of a website,
+def search():
+    website = web_entry.get()
+    try:
+    
+        with open("data.json", "r") as data_file:
         
+            data = json.load(data_file)
+# catches the error so the app does not crash
+    except FileNotFoundError:
+            CTkMessagebox(title="Error", message="No Data File Found", icon="warning", button_color=SLATE_PINK, button_hover_color=SLATE_BLUE, font=("Fixedsys",15, ))
+# gets the details associated with the website, else shows error if website is not found in json file 
+    else:
+        if website in data:
+                email = data[website]["email"]
+                password = data[website]["password"]
+
+                CTkMessagebox(title=f"{website} details found", message=f"email: {email} \npassword: {password}", icon="check", button_color=SLATE_PINK, button_hover_color=SLATE_BLUE, font=("Fixedsys",15, ))
+        else:
+             CTkMessagebox(title="error", message=f"No details for {website} found", icon="warning", button_color=SLATE_PINK, button_hover_color=SLATE_BLUE, font=("Fixedsys",15, ))
 
 
 
@@ -108,15 +143,15 @@ web_label = customtkinter.CTkLabel(app,text="Website")
 web_label.grid(row=1, column=0, padx=10)
 
 
-web_entry = customtkinter.CTkEntry(app, width=200,)
+web_entry = customtkinter.CTkEntry(app, width=200,height=30)
 web_entry.grid(row=1,column=1, columnspan=2,)
-web_entry.focus()
+
 
 email_label = customtkinter.CTkLabel(app, text="Email/Username")
 email_label.grid(row=2, column=0, padx=5  )
 
-email_entry = customtkinter.CTkEntry(app,width=200)
-email_entry.grid(column=1, row=2, columnspan=2, padx=5, pady=8)
+email_entry = customtkinter.CTkEntry(app,width=200, height=30)
+email_entry.grid(column=1, row=2, columnspan=2, padx=5, pady=8,)
 email_entry.insert(0,string="example@gmail.com")
 
 
@@ -125,19 +160,25 @@ email_entry.insert(0,string="example@gmail.com")
 password_label = customtkinter.CTkLabel(app, text="Password")
 password_label.grid(row=3, column=0)
 
-password_entry = customtkinter.CTkEntry(app, width=200)
+password_entry = customtkinter.CTkEntry(app, width=200, height=30)
 password_entry.grid(row=3, column=1, padx=5)
-
 # generate password and add button
 
-generate_button = customtkinter.CTkButton(app,text="Generate password", hover=True, bg_color=BLACK, fg_color=SLATE_PINK,)
+generate_button = customtkinter.CTkButton(app,text="Generate password", hover=True, bg_color=BLACK, fg_color=SLATE_PINK, font=("Fixedsys",15, ))
 generate_button.configure(hover_color=(SLATE_BLUE), cursor="hand2", command=generate_password )
 generate_button.grid(column=3,row=3, padx=5)
 
-add_button = customtkinter.CTkButton(app, text="Add", hover=True,bg_color=BLACK, fg_color=SLATE_PINK, width=200)
+add_button = customtkinter.CTkButton(app, text="Add", hover=True,bg_color=BLACK, fg_color=SLATE_PINK, width=200, font=("Fixedsys",15, ))
 add_button.configure( hover_color=(SLATE_BLUE), cursor="hand2", command=save)
 add_button.grid(column=1, row=4, columnspan=2, pady=10)
 
+
+# search json file button and images
+search_img = customtkinter.CTkImage(light_image=Image.open("search.png"), dark_image=Image.open("search.png"), size=(22,22))
+
+search_button = customtkinter.CTkButton(app,image=search_img, bg_color=BLACK, fg_color=SLATE_PINK)
+search_button.configure(text=None, cursor="hand2", command=search, hover_color=(SLATE_BLUE), )
+search_button.grid(column=3, row=1)
 
 
 
