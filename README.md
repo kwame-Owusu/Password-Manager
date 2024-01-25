@@ -26,8 +26,12 @@ $PROJECT_ROOT
 └── Data.json
 ```
 
-## Video for how it works
-https://olympuss.ntu.ac.uk/storage/user/1587/files/69b2fe6b-56fe-4235-840f-0ce973173d3f
+## Video 
+
+https://github.com/kwame-Owusu/Password-Manager/assets/98961379/5b61b294-c861-430c-8598-fca76451deb5
+
+for how it works
+
 
 
 
