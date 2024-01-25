@@ -26,11 +26,11 @@ $PROJECT_ROOT
 └── Data.json
 ```
 
-## Video 
+## Video for how it works
+
 
 https://github.com/kwame-Owusu/Password-Manager/assets/98961379/5b61b294-c861-430c-8598-fca76451deb5
 
-for how it works
 
 
 
