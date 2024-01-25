@@ -10,10 +10,6 @@ it is a program written in  python, the main goal is to be able to get details f
 * [Images credit](https://icons8.com/) - the images for the icons were taken from Icons8 website.
 
 
-## UI colour palette
-
-![Key Guard Palette](https://olympuss.ntu.ac.uk/storage/user/1587/files/d056a193-f9c2-4ce2-b3c0-d9ef6aee51b5)
-
 ## Project structure
 ```
 $PROJECT_ROOT
