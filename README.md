@@ -10,9 +10,6 @@ it is a program written in  python, the main goal is to be able to get details f
 * [Images credit](https://icons8.com/) - the images for the icons were taken from Icons8 website.
 
 
-## Design of the program before coding
-<img width="800" alt="Initial_Design" src="https://olympuss.ntu.ac.uk/storage/user/1587/files/bee14cf9-b982-4a82-9f4a-dbd8ab1d834d">
-
 ## UI colour palette
 
 ![Key Guard Palette](https://olympuss.ntu.ac.uk/storage/user/1587/files/d056a193-f9c2-4ce2-b3c0-d9ef6aee51b5)
@@ -36,12 +33,10 @@ $PROJECT_ROOT
 ## Video for how it works
 https://olympuss.ntu.ac.uk/storage/user/1587/files/69b2fe6b-56fe-4235-840f-0ce973173d3f
 
-## Test Table 
-[Code Test.pdf](https://olympuss.ntu.ac.uk/n1179668/Programming-strand-assignment/files/12/Code.Test.pdf)
 
 
 
 ## Limitations
-this program is a simple program and though the encryption process is good, its serves only this purpose for such simple programs, Fernet has limitations; because it is only ideal for data that easily fits in memory, and that is the reason I chose to use the json file format for storage of data. Fernet cannot be implement with large databases and large amounts of data at the same time, hence making it suitable for "local" small projects. 
-One thing that could have been perfected would have been the addition of a login window before accessing the main window but because this is supposed to be an offline program, there was no need for that.
+this program is a simple program and though the encryption process is good, its serves only this purpose for such simple program, thats why i used fernet, I might package the program later.
+
 
